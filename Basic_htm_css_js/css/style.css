@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+h1{
+    color: red;
+    background-color: cyan;
+    font-size: 70px;
+    font-family:cursive;
+    font-weight: 100;
+
+}
+
+h2{
+    color: lightblue;
+    background-color: black;
+    font-style: italic;
+    text-align: center;
+}
+
+div{
+    background-color: blue;
+    color: white;
+    height: 200px;
+    width: 200px;
+}
+
+#sujan{
+    font-size: 20px;
+    background-color: bisque;
+}
+
+.a{
+    color: blue;
+    background-color: brown;
+}
+
+#box{
+    background-color: red;
+    height: 300px;
+    width: 300px;
+    margin-left: 100px;
+    margin-top: 50px;
+    padding: 50px;
+}
+
+#parent{
+    background-color: crimson;
+    height: 300px;
+    width: 300px;
+}
+#child{
+    height: 75%;
+    width: 50%;
+    background-color: royalblue;
+    margin: 30px;
+}
+
+button{
+    margin: 40px;
+    font-size: 20px;
+    padding: 15px 25px;
+    background-color: lightseagreen;
+    color: whitesmoke;
+    border: 3px dotted red;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: whitesmoke;
+    color: lightseagreen;
+    border: 1px solid black;
+}
+
+#box1{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+    border: 2px solid #000000;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
+
+#box2{
+    height: 200px;
+    width: 200px;
+    border: 2px solid #000000;
+    background-color: royalblue;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+}
+
+h6{
+    text-align: center;
+    font-size: 40px;
+}
+
+h6 span{
+    background-color: lightseagreen;
+    border-radius: 9px;
+    color: white;
+    padding: 5px 10px;
+}
+#parent1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.child{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+    border: 2px solid black ;
+    background-image: url(https://plus.unsplash.com/premium_photo-1774354371673-b6d7386e58b7?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzN3x8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+}
