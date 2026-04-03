@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background-color: #d5ff40;
+}
+
+nav{
+    padding: 40px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .part2{
+    display: flex;
+    align-items: flex;
+    justify-content: center;
+    gap: 70px;
+}
+
+nav h2{
+    font-size: 48px;
+    font-weight: 500;
+}
+
+nav a{
+    font-size: 30px;
+    color: black;
+}
