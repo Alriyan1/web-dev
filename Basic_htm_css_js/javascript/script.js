@@ -62,3 +62,31 @@ console.log(arr)
 arr.forEach(function(elem){
     console.log('alriyan',elem)
 })
+
+var obj1 = {
+    model : 'iphone',
+    price : 70000,
+    color : 'white'
+}
+
+var obj2 = {
+    model : 'oneplus',
+    price : 30000,
+    color : 'black'
+}
+
+console.log(obj1)
+console.log(obj2.price)
+
+var obj3 = {
+    userName : 'alriyan',
+    age : 23,
+    greet:function(){
+        console.log('hello')
+        return 0
+    }
+}
+
+console.log(obj3)
+console.log(obj3.greet())
+obj3.greet()
