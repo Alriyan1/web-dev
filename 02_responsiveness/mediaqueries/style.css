@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+#box{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+}
+
+@media (max-width:600px) and (min-width:300px) {
+    #box{
+        background-color: lightblue;
+        border-radius: 50%;
+    }  
+}
