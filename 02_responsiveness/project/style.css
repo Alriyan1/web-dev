@@ -1,3 +1,10 @@
+:root{
+    --gray:#212121;
+    --green:#009660;
+    --black:#0c0c0c;
+    --lgray:#929292;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -10,6 +17,13 @@ html,body{
     width: 100%;
     background-color: black;
 } 
+
+.green{
+    color: var(--green);
+}
+.lgray{
+    color: var(--lgray);
+}
 
 nav{
     display: flex;
@@ -84,3 +98,80 @@ nav{
         font-size: 13px;
     }
 }
+
+main{
+    padding: 90px;
+}
+
+.section1{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+
+.section1 .left{    
+    width: 45%;
+}
+
+.section1 .left h1{
+    font-size: 45px;
+}
+
+.section1 .left .tags{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 7px 0;
+    flex-wrap: wrap;
+}
+.left .price{
+    font-size: 30px;
+}
+
+.left .price .lgray{
+    font-size: 20px;
+}
+
+.section1 .left .tags h4{
+    padding: 7px 15px;
+    border-radius: 4px;
+    background-color: var(--gray);
+    white-space: nowrap;
+}
+
+
+.section1 .right .right-in{
+    height: 700px;
+    width: 700px;
+    /* background-color: green; */
+    border-radius: 5px;
+}
+
+.section1 .right .right-in .image{
+    width: 100%;
+}
+
+.section1 .right .right-in .image img{
+    width: 100%;
+}
+
+.section1 .right .right-in .image-bottom{
+    padding: 17px;
+    background-color: var(--gray);
+    padding-top: 35px;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+}
+
+.right-in .image-bottom h4{
+    background-color: var(--lgray);
+    padding: 7px 12px;
+    border-radius: 3px;
+    width: 45%;
+}
+
