@@ -63,3 +63,43 @@ function getScore(...score){
 
 
 let e = getScore(1,2,3,4,5,6);
+
+let arr = [1,2,3,4,5];
+
+arr.push(28) // add in last
+arr.unshift(0) // add in first
+arr.pop(); // last se remove
+arr.shift() // start se remove
+arr.splice(2,1) // remove from index to how many
+arr.splice(1,0,'one','two') // no remove but add one,two
+arr.slice(0,3) // return new array from to given index -1
+arr.reverse() // reverse the arr
+arr.sort(function(a,b){
+    return a-b;  // return the asc sorted array if b- a return desc sorted arr
+});
+
+arr.map(function(val){
+    return 12;  // return new array [12,12,12,12,12]
+});
+
+arr.filter(function(val){
+    if(val>3){
+        return true;   // array = [4,5]
+    }
+});
+
+arr.reduce(function(accumulator,val){
+    return accumulator+val;    //reutn sum
+},0);
+
+arr.find(function(val){
+    return val===1;
+});
+
+arr.some(function(val){
+    return val>4;   // return true
+})
+
+let [a,b,,c]=arr; // a=1,b=2,c=4
+
+arr2 = [...arr]; // arr ka copy [...a,...b] combine two arr
