@@ -103,3 +103,26 @@ arr.some(function(val){
 let [a,b,,c]=arr; // a=1,b=2,c=4
 
 arr2 = [...arr]; // arr ka copy [...a,...b] combine two arr
+
+
+let obj = {
+    name : 'Alriyan',
+    role : 'ai engineer',
+    time : '10',
+}
+
+obj.name // Alriyan
+obj['name'] // Alriyan
+
+for(let key in obj){
+    console.log(key,obj[key]);
+}
+
+Object.keys(obj); // return keys
+Object.entries(obj); // return all key value pair in multiple array 
+
+obj2 = {...obj}; // best for copying normal object
+
+obj3 = JSON.parse(JSON.stringify(obj)); // best for nested object
+
+obj?.name // if exist return value if not return undefined not error
