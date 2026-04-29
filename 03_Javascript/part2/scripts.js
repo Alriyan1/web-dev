@@ -23,3 +23,25 @@ hh.textContent = 'gurde';
 document.body.append(hh); // ya prepend
 
 // document.querySelector("body").prepend(h2)
+
+// hh.style.color = 'yellow'
+// hh.style.backgroundColor = 'red'
+
+hh.classList.add('hulu') // hh.classList.remove("hulu")
+
+let lis = document.querySelectorAll('li');
+lis.forEach(function (val){
+    console.log(val.textContent)
+})
+
+let img = document.createElement('img')
+img.width = '20px'
+img.setAttribute('alt','00000000000')
+document.body.append(img)
+
+
+let li = document.querySelectorAll("ul li:nth-child(2n)");
+
+li.forEach(function (val){
+    val.style.color = 'pink';
+})
