@@ -5,11 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            width: 100%;
+            height: 100%;
+        }
+
         .hulu {
             font-family: sans-serif;
             font-style: italic;
             background-color: royalblue;
         }
+        
+        #dis{
+            display: none;
+        }
+
+        #btn{
+            background-color: royalblue;
+            border-radius: 8px;
+            padding: 10px 10px;
+            color: white;
+        }
+
+        #btn:hover{
+            background-color: aquamarine;
+            color: blueviolet;
+        }
+        
+        .abcd{
+            width: 20vh;
+            height: 20vh;
+            background-color: red;
+        }
+
+        .abcd2{
+            position: absolute;
+            transition: cubic-bezier(0.19, 1, 0.22, 1) .6s;
+            width: 20vh;
+            height: 20vh;
+            background-color: rgb(212, 31, 142);
+        }
+
     </style>
 </head>
 <body>
@@ -24,6 +60,37 @@
         <li>3</li>
         <li>4</li>
     </ul>
+
+    <input type="text" placeholder="Enter">
+
+    <h3>Select your device</h3>
+    <select>
+        <option selected disabled>Choose Your device</option>
+        <option value="samsung">SamSUng</option>
+        <option value="apple">AppLE</option>
+        <option value="poco">PoCo</option>
+        <option value="mi">MI</option>
+    </select>
+
+    <input type="file" id="dis">
+
+    <button id="btn">Upload File</button> 
+    <div class="main">
+        <form action="">
+            <input type="text" placeholder="name">
+            <input type="text" placeholder="age">
+            <input type="text" placeholder="email">
+            <input type="text" placeholder="profile Pic"><br>
+            <input type="submit">
+        </form>
+
+    </div>
+
+    <div class="abcd"></div>
+    <div class="abcd2"></div>
+    
+    
+
 
 
     <script src="scripts.js"></script>

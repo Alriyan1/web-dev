@@ -43,5 +43,77 @@ document.body.append(img)
 let li = document.querySelectorAll("ul li:nth-child(2n)");
 
 li.forEach(function (val){
-    val.style.color = 'pink';
+    val.style.color = 'pink'; 
 })
+
+
+let h = document.querySelector('h1');
+
+function event(){
+    h.style.color = 'green'
+}
+
+h.addEventListener("click",event); // h.removeEventListner("click",event);
+
+let input = document.querySelector('input');
+
+input.addEventListener('input',function(val){
+    console.log(val.data)
+})
+
+let opt = document.querySelector('select');
+let device = document.querySelector('h3');
+
+opt.addEventListener('change',function(val){
+    console.log(val.target.value)
+}); 
+
+opt.addEventListener('change',function(val){
+    device.textContent = `${val.target.value} SELECTED`
+});
+
+
+let fileinp = document.querySelector('#dis');
+let butt = document.querySelector('#btn');
+
+butt.addEventListener('click',function(){
+    fileinp.click();
+})
+
+fileinp.addEventListener('change',function(val){
+    const file = val.target.files[0];
+
+    if (file){
+        butt.textContent = file.name;
+        console.log(file.name)
+    }
+})
+
+let form = document.querySelector('form');
+
+form.addEventListener('submit',function(val){
+    val.preventDefault();
+    console.log(
+        val.target[0].value,
+        val.target[1].value,
+        val.target[2].value,
+        val.target[3 ].value
+    );
+})
+
+let abcd = document.querySelector(".abcd");
+
+abcd.addEventListener('mouseover',function(){
+    abcd.style.backgroundColor = 'yellow';
+});
+
+abcd.addEventListener('mouseout',function(){
+    abcd.style.backgroundColor = 'red';
+})
+
+let abcd2 = document.querySelector(".abcd2");
+
+window.addEventListener('mousemove',function(val){
+    abcd2.style.top = val.clientY + "px";
+    abcd2.style.left = val.clientX + "px";
+});
