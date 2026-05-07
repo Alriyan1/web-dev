@@ -97,7 +97,7 @@ form.addEventListener('submit',function(val){
         val.target[0].value,
         val.target[1].value,
         val.target[2].value,
-        val.target[3 ].value
+        val.target[3].value
     );
 })
 
@@ -117,3 +117,53 @@ window.addEventListener('mousemove',function(val){
     abcd2.style.top = val.clientY + "px";
     abcd2.style.left = val.clientX + "px";
 });
+
+let inp = document.querySelector('#test');
+let span = document.querySelector('span');
+
+inp.addEventListener('input',function(){
+    let left = 20 - inp.value.length;
+    span.textContent = left;
+    if (left<0){
+        span.style.color = 'red';
+    }else{
+        span.style.color = 'black'
+    }
+});
+
+let time = setTimeout(() => {
+    console.log('masal dunga')
+}, 2000);
+
+clearTimeout(time);
+
+localStorage.setItem('name','alriyan') // also update the value
+
+let val = localStorage.getItem('name') // removeItem to remove it
+
+// sessionStorge for temporary data
+
+let cook = document.cookie = "age=23"
+console.log(cook)
+
+localStorage.clear()
+
+localStorage.setItem('friends',JSON.stringify(['akask','harsh','amit']))
+let loc = localStorage.getItem('friends')
+console.log(JSON.parse(loc))
+
+function setDarkOrlight(){
+    if (document.body.classList.contains('dark')){
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+    } else {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+    }
+}  
+
+let mode = document.querySelector('#mode');
+
+mode.addEventListener('click',function(){
+    setDarkOrlight()
+})

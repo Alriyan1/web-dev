@@ -38,12 +38,23 @@
             background-color: red;
         }
 
-        .abcd2{
+        /* .abcd2{
             position: absolute;
             transition: cubic-bezier(0.19, 1, 0.22, 1) .6s;
             width: 20vh;
             height: 20vh;
             background-color: rgb(212, 31, 142);
+        } */
+
+        .dark{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        .light{
+            width: 100%;
+            height: 100%;
+            background-color: blue;
         }
 
     </style>
@@ -89,9 +100,12 @@
     <div class="abcd"></div>
     <div class="abcd2"></div>
     
-    
+    <input id="test" type="text" placeholder="write anything">
+    <h1">Charachers left: <span id="char">20</span></h1>
 
-
+    <div class="dark"></div>
+    <button id="mode">mode</button>
+  
 
     <script src="scripts.js"></script>
 </body>
