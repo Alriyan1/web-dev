@@ -139,5 +139,88 @@ function CreatePencil(name,price,color,company){
     }
 }
 
+CreatePencil.prototype.owner = 'alriyan';
+
 let p1 = new CreatePencil('natraj',10,'black','natraj')
 let p2 = new CreatePencil('natraj',10,'red','natraj')
+
+// class
+
+class CreatePen{
+    constructor(name,company,price,color){
+        this.name = name;
+        this.company = company;
+        this.price = price;
+        this.color = color;
+    }
+
+    write(text){
+        let h2 = document.createElement('h2');
+        h2.textContent = text;
+        h2.style.color = this.color;
+        document.body.appendChild(h2);
+    }
+
+    erase (){
+        document.body.querySelectorAll('h2').forEach((element) =>{
+            if (element.style.color === this.color){
+                element.remove();
+            }
+        });
+    }
+}
+
+let pen1 = new CreatePen('alriyan','fan',7989,'green');
+let pen2 = new CreatePen('fardeen','ufn',798989,'blue');
+
+
+// inheritance
+
+class User{
+    constructor(name,address,username,email){
+        this.name = name;
+        this.address = address;
+        this.username = username;
+        this.email = email;
+        this.role = 'user';
+    }
+    
+    checkRole(){
+        return `You are a ${this.role}`;
+    }
+
+    write(text){
+        let h = document.createElement('h1');
+        h.textContent = `${this.name} : ${text}`;
+        document.body.appendChild(h);
+    }
+}
+
+class Admin extends User{
+    constructor(name,address,username,email){
+        super(name,address,username,email);
+        this.role = 'admin'
+    }
+
+    remove(){
+        document.querySelectorAll('h1').forEach(function(elem){
+            elem.remove();
+        })
+    }
+}
+
+let u1 = new User('alriyan','sihali','aalaa','aaaa.com');
+let u2 = new User('fardeen','delhi','faaah','faaah.com')
+let a1 = new Admin('Noor','hsnpr','noooh','noooh.com')
+
+// prototype inheritance
+
+let coffee = {
+    color: 'dark',
+    drink: function(){
+        console.log('gut gut gut');
+    },
+};
+
+let desiCoffee = Object.create(coffee);
+desiCoffee.taste = 'bitter';
