@@ -86,3 +86,58 @@ setTimeout(()=>{
     toast('Aja ladle!!')
 },2000)
 
+// this keyword
+
+console.log(this)
+
+let abcd = function(){
+    console.log(this)
+}
+
+abcd()
+
+let obj = {
+    name : 'alriyan',
+    age : 23,
+    sayName : function(){
+        console.log(this)
+    }
+}
+
+obj.sayName()
+
+document.querySelector('h1').addEventListener('click',function(){
+    console.log(this.style.color='red');
+})
+
+
+// call
+
+let objj = {
+    name:'alriyan',
+    age:26
+};
+
+function abcd2(a,b,c){
+    console.log(this.age,a,b,c)
+}
+
+abcd2.call(objj,1,2,3)
+
+//  oops
+
+function CreatePencil(name,price,color,company){
+    this.name = name;
+    this.price = price;
+    this.color = color;
+    this.company = company;
+    this.write = function(text){
+        let h1 = document.createElement('h1');
+        h1.textContent = text
+        h1.style.color = color;
+        document.body.append(h1);
+    }
+}
+
+let p1 = new CreatePencil('natraj',10,'black','natraj')
+let p2 = new CreatePencil('natraj',10,'red','natraj')
