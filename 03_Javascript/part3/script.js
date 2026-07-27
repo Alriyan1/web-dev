@@ -296,3 +296,16 @@ async function temp(){
 }
 
 temp()
+
+// fetch api
+
+fetch('https://randomuser.me/api/')
+    .then((rawdata)=>{
+        return rawdata.json();
+    })
+    .then((data)=>{
+        console.log(data.results);
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
