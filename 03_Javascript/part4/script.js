@@ -108,3 +108,22 @@ let u2 = new User('dusra');
 edu.subscribe(u1)
 edu.subscribe(u2)
 edu.notify('dosti krlo')
+
+
+// debouncing
+
+let input = document.querySelector('input')
+
+function debounce(fnc,delay){
+    let timer;
+    return function(...args){
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fnc(...args);
+        }, delay);
+    }
+}
+
+input.addEventListener('input',debounce(function(){
+    console.log('hee')
+},1000))
