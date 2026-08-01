@@ -124,6 +124,31 @@ function debounce(fnc,delay){
     }
 }
 
-input.addEventListener('input',debounce(function(){
-    console.log('hee')
+// input.addEventListener('input',debounce(function(){
+//     console.log('hee')
+// },1000))
+
+// throttling
+
+function throttle(fnc,delay){
+    let timer = 0;
+    return function(...args){
+        let now = Date.now();
+        if (now-timer>=delay){
+            timer = now;
+            fnc(...args)
+        }
+    };
+};
+
+input.addEventListener('input',throttle(function(){
+    console.log('raa')
 },1000))
+
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click',async function(){
+    let heavy = await import("./heavy.js");
+    heavy.veryHeavy();
+})
