@@ -152,3 +152,30 @@ btn.addEventListener('click',async function(){
     let heavy = await import("./heavy.js");
     heavy.veryHeavy();
 })
+
+// reflows and repaits
+
+const ul = document.querySelector('ul');
+const space = document.createDocumentFragment();
+
+for(let i=0;i<100;i++){
+    let li = document.createElement('li');
+    li.textContent = i
+    space.appendChild(li);
+}
+
+ul.appendChild(space)
+
+// memory leaks->event listeners
+
+let count = 0;
+
+let int = setInterval(() => {
+    if (count<10){
+        console.log(count);
+        count++;
+    }else{
+        clearInterval(int);
+        console.log('khatam tata bye bye');
+    }
+}, 500);
