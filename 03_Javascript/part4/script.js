@@ -179,3 +179,23 @@ let int = setInterval(() => {
         console.log('khatam tata bye bye');
     }
 }, 500);
+
+// seperation of codes 
+// bad approach 
+const btnn = document.querySelector('#btn2');
+const ol = document.querySelector('ol');
+
+function add(n1,n2){
+    return n1+n2;
+}
+
+btnn.addEventListener('click',function(){
+    const n1 = Math.floor(Math.random()*10);
+    const n2 = Math.floor(Math.random()*10);
+
+    // let add = n1+n2; bad
+    let sum = add(n1,n2); // good approch
+    let li = document.createElement('li');
+    li.textContent = sum;
+    ol.appendChild(li);
+})
