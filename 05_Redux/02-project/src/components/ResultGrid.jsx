@@ -29,6 +29,7 @@ const ResultGrid = () => {
               title: item.alt_description,
               thumbnail: item.urls.small,
               src: item.urls.full,
+              url:item.links.html
             }));
           }
           if (activeTab == "videos") {
@@ -39,6 +40,7 @@ const ResultGrid = () => {
               title: item.user.name || "video",
               thumbnail: item.image,
               src: item.video_files[0].link,
+              url:item.url
             }));
           }
           dispatch(setResults(data));
@@ -55,7 +57,7 @@ const ResultGrid = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className="flex flex-wrap justify-center gap-5 overflow-auto px-10">
+    <div className="flex flex-wrap w-full justify-center gap-6 overflow-auto px-10">
       {results.map((item, idx) => {
         return <div key={idx}>
             <ResultCard item={item}/>
