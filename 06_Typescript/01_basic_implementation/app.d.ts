@@ -63,4 +63,8 @@ declare class User2 {
     set name(value: string);
 }
 declare let u1: User2;
+declare class Allii {
+    static version: number;
+    static getRandomNumber(): number;
+}
 //# sourceMappingURL=app.d.ts.map

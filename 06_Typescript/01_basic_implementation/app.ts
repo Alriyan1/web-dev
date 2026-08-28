@@ -79,8 +79,8 @@ class MetalBottle extends MakeBottle{
     }
 
     getValue(){
-        console.log(this.name,this.halua,this.ajaa) // halua can only accessed on it own class
-        this.ajaa = 'nahi' // can not change as readonly  
+        console.log(this.name,this.ajaa) // this.halua can only accessed on it own class
+        // this.ajaa = 'nahi' // can not change as readonly  
         console.log(this.ajaa)
     }
 
@@ -103,3 +103,13 @@ class User2{
 }
 
 let u1 = new User2('alriyan',23)
+
+
+// use static to access without making instance of class
+class Allii{
+    static version = 1.0;
+
+    static getRandomNumber(){
+        return Math.random()
+    }
+}
