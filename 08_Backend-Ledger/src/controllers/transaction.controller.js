@@ -60,7 +60,7 @@ async function createTransaction(req,res){
         }
     }
 
-    if (fromUserAccount.status!=="ACTIVE" || toUserAccount!=="ACTIVE"){
+    if (fromUserAccount.status!=="ACTIVE" || toUserAccount.status!=="ACTIVE"){
         return res.status(400).json({
             message:"Both fromAccount and toAccount must be ACTIVE to process transaction"
         })
@@ -73,37 +73,54 @@ async function createTransaction(req,res){
             message: `Insufficient balance. Current balance is ${balance}. Requested balance is ${amount}`
         })
     }
+    let transaction;
+    
+    try {
+        const session = await mongoose.startSession()
+        session.startTransaction()
 
-    const session = await mongoose.startSession()
-    session.startTransaction()
+        transaction = (await transactionModel.create([{
+            fromAccount,
+            toAccount,
+            amount,
+            idempotencyKey,
+            status:"PENDING"
+        }],{session}))[0 ]
 
-    const transaction = await transactionModel.create({
-        fromAccount,
-        toAccount,
-        amount,
-        idempotencyKey,
-        status:"PENDING"
-    },{session})
+        const debitLedgerEntry = await ledgerModel.create([{
+            account: fromAccount,
+            amount: amount,
+            transaction:transaction._id,
+            type:"DEBIT"
+        }],{session})
 
-    const debitLedgerEntry = await ledgerModel.create({
-        account: fromAccount,
-        amount: amount,
-        transaction:transaction._id,
-        type:"DEBIT"
-    },{session})
 
-    const creditLedgerEntry = await ledgerModel.create({
-        account: toAccount,
-        amount: amount,
-        transaction: transaction._id,
-        type:"CREDIT"
-    },{session})
+        const creditLedgerEntry = await ledgerModel.create([{
+            account: toAccount,
+            amount: amount,
+            transaction: transaction._id,
+            type:"CREDIT"
+        }],{session})
 
-    transaction.status = "COMPLETED"
-    await transaction.save({session})
+        await transactionModel.findOneAndUpdate(
+            {_id:transaction._id},
+            { status: "COMPLETED"},
+            {session}
+        )
 
-    await session.commitTransaction()
-    session.endSession()
+        transaction.status = "COMPLETED"
+        await transaction.save({session})
+
+        await session.commitTransaction()
+        session.endSession()
+    } catch (err) {
+
+        return res.status(400).json({
+            message:"Transaction is Pending due to some issue, please retry after some time",
+        })
+    }
+
+    
 
 
     await emailService.sendTransactionEmail(req.user.email,req.user.name,amount,toAccount)
